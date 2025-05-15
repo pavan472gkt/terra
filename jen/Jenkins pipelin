@@ -1,0 +1,36 @@
+pipeline {
+    agent any 
+
+    stages {
+        stage('server details'){
+            steps {
+                echo "this will print server details"
+            }
+        }
+
+        stage('details of server'){
+            steps {
+                sh 'uname -a'
+            }
+        }
+
+        stage('date of server'){
+            steps {
+                sh 'date'
+            }
+        }
+
+        stage('disk usage'){
+            steps {
+                sh 'df -h'
+            }
+        }
+
+        stage('memory usage'){
+            steps {
+                sh 'free -h'
+            }
+        }
+
+    }
+}
