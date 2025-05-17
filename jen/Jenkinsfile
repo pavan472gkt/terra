@@ -1,0 +1,30 @@
+pipeline {
+    agent any 
+
+    tools {
+        jdk 'jave-11'
+        maven 'maven'
+    }
+
+    stages {
+        stage('git-checkout'){
+            steps {
+                git branch: 'main', 'url:https://github.com/pavan472gkt/terra.git'
+            }
+        }
+
+        stage('compil'){
+            steps {
+                sh 'mvn compilr'
+            }
+        }
+
+        stage(packaging){
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        
+    }
+}
